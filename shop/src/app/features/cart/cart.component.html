@@ -1,1 +1,23 @@
-<p>cart works!</p>
+<h2>🛒 My Cart</h2>
+
+<div *ngIf="cartItems.length === 0">
+  Cart is empty
+</div>
+
+<div *ngFor="let item of cartItems; let i = index" class="card p-3 mb-2">
+
+  <div class="d-flex justify-content-between">
+
+    <div>
+      <h5>{{ item.name }}</h5>
+      <p>₹{{ item.price }}</p>
+    </div>
+
+    <button class="btn btn-danger"
+            (click)="removeItem(i)">
+      Remove
+    </button>
+
+  </div>
+
+</div>

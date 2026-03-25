@@ -1,12 +1,31 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container">
-        <a href="" class="navbar-brand">🛒 MyShop</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark shadow">
+  <div class="container">
 
-        <div>
-           <a class="nav-link text-white d-inline" routerLink="/products">Products</a>
-           <a class="nav-link text-white d-inline" routerLink="/cart">Cart</a>
- 
-        </div>
+    <!-- Logo -->
+    <a class="navbar-brand fw-bold" >
+      🛒 MyShop
+    </a>
+
+    <!-- Links -->
+    <div class="navbar-collapse justify-content-end">
+      <ul class="navbar-nav align-items-center">
+        <li class="nav-item">
+           <a class="nav-link" routerLink="/products">Products</a>
+       </li>
+
+        <li class="nav-item">
+          <a class="nav-link position-relative" routerLink="/cart">
+           Cart 🛒
+           <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">  {{ cartService.getCartCount() }}</span>
+          </a>
+        </li>
+      </ul>
     </div>
+
+  </div>
 </nav>
-<router-outlet></router-outlet>
+
+<!-- Page Content -->
+<div class="container mt-4">
+  <router-outlet></router-outlet>
+</div>

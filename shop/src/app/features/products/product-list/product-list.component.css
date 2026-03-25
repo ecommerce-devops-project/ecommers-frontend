@@ -1,4 +1,18 @@
-.card:hover{
-    transform: scale(1.03);
-    transition: 0.3s;
+.product-card {
+  border-radius: 12px;
+  transition: 0.3s;
+}
+
+.product-card:hover {
+  transform: translateY(-5px);
+}
+
+.product-img {
+  height: 220px;
+  object-fit: cover;
+}
+
+.price {
+  color: green;
+  font-weight: bold;
 }

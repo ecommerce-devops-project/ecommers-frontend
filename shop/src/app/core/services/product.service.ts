@@ -1,16 +1,20 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ProductService {
 
-  constructor() { }
-  getProducts(){
-    return[
-      { id: 1, name: 'Laptop', price: 50000, image: 'https://via.placeholder.com/150' },
-      { id: 2, name: 'Mobile', price: 20000, image: 'https://via.placeholder.com/150' },
-      { id: 3, name: 'Headphones', price: 3000, image: 'https://via.placeholder.com/150' }
-    ];
+  private apiurl = 'http://localhost:3000/api/products'
+
+  constructor(private http:HttpClient) { }
+
+  getProducts(): Observable<any>{
+    return this.http.get(this.apiurl);
+  }
+  addProduct(product:any){
+    return this.http.post(this.apiurl, product);
   }
 }
